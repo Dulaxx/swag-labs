@@ -1,5 +1,9 @@
 import { test, expect } from '@playwright/test';
 
+test.beforeEach(async ({ page }) => {
+  await page.goto('https://www.saucedemo.com/inventory.html');
+});
+
 test('test one', async ({ page }) => {
   await page.locator('[data-test="inventory-item-description"]').first().click();
   await page.locator('[data-test="item-4-title-link"]').click();
